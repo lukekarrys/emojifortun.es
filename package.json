@@ -1,0 +1,29 @@
+{
+  "name": "emoji-fortune",
+  "version": "0.0.0",
+  "description": "Your emoji fortune!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lukekarrys/emoji-fortune.git"
+  },
+  "keywords": [
+    "emoji",
+    "fortune",
+    "cookie"
+  ],
+  "author": "Luke Karrys <luke@lukekarrys.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukekarrys/emoji-fortune/issues"
+  },
+  "homepage": "https://github.com/lukekarrys/emoji-fortune",
+  "dependencies": {
+    "moonboots-static": "0.0.4",
+    "underscore": "^1.6.0",
+    "emoji-images": "^0.1.1"
+  }
+}
