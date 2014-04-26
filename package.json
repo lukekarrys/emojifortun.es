@@ -33,6 +33,7 @@
   },
   "scripts": {
     "start": "node server",
-    "dev": "node server --dev"
+    "dev": "node server --dev",
+    "deploy": "npm start && rake deploy"
   }
 }
