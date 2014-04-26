@@ -1,7 +1,7 @@
 # from https://github.com/imathis/octopress/blob/master/Rakefile
 
-deploy_dir      = "_deploy"
-public_dir      = "_site"
+deploy_dir      = "_ghpages"
+public_dir      = "_built"
 deploy_branch  = "gh-pages"
 
 def get_stdin(message)
