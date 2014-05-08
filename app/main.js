@@ -13,7 +13,7 @@ var text = _.pluck(emoji, 'name').join(' ').replace(/:/g, '').replace(/_/g, ' ')
 domready(function () {
     document.querySelector('#fortune').appendChild(domify(images));
     document.querySelector('#fortuneText').innerHTML = text;
-    document.querySelector('#tweetButton').setAttribute('data-text', 'My emoji fortune is "' + text + '"');
+    document.querySelector('#tweetButton').setAttribute('data-text', 'My emoji fortune is "' + text + '" —');
     tweet(document);
 });
 
