@@ -1,5 +1,5 @@
 var size = 64;
-var host = 'https://raw.githubusercontent.com/HenrikJoreteg/emoji-images/master/pngs';
+var host = '/emojis';
 var _ = require('underscore');
 var fortune = require('../lib/emoji');
 var domready = require('domready');
@@ -16,4 +16,3 @@ domready(function () {
     document.querySelector('#tweetButton').setAttribute('data-text', 'My emoji fortune is "' + text + '" —');
     tweet(document);
 });
-

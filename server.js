@@ -5,6 +5,7 @@ var jade = require('jade');
 var fs = require('fs');
 var lessitizer = require('lessitizer');
 
+
 var devMode = process.argv.join(' ').indexOf('--dev') > -1;
 var html = function (locals) {
     return jade.compile(fs.readFileSync(appPath + 'index.jade'))(locals);
@@ -25,9 +26,9 @@ var config = {
 };
 
 
-
 if (devMode) {
     var server = express();
+    var port = process.env.PORT || 3001;
     server.use(express.static(__dirname + '/public'));
     new Moonboots({
         server: server,
@@ -36,7 +37,8 @@ if (devMode) {
             res.send(html(res.locals));
         }
     });
-    server.listen(process.env.PORT || 3000);
+    server.listen(port);
+    console.log('Running on localhost:' + port);
 } else {
     new Build({
         moonboots: config,
@@ -50,5 +52,3 @@ if (devMode) {
         }
     });
 }
-
-
