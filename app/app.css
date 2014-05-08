@@ -18,11 +18,17 @@ body {
   background: transparent;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 900px;
+  -moz-background-size: 900px;
+  background-size: 900px;
   background-image: url(/bg-web.jpg);
-  background-position: 50% 50%;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  -lh-property: 0;
+background-position-x:-webkit-calc(50% - 26px);
+background-position-x:-moz-calc(50% - 26px);
+background-position-x:calc(50% - 26px);
+;
 }
 #fortune {
   position: absolute;
@@ -33,13 +39,13 @@ body {
 }
 #fortune span {
   position: absolute;
-  left: -142px;
-  top: -12px;
-  -webkit-transform: rotate(-11deg);
-  -moz-transform: rotate(-11deg);
-  -o-transform: rotate(-11deg);
-  -ms-transform: rotate(-11deg);
-  transform: rotate(-11deg);
+  left: -141px;
+  top: -18px;
+  -webkit-transform: rotate(-12deg);
+  -moz-transform: rotate(-12deg);
+  -o-transform: rotate(-12deg);
+  -ms-transform: rotate(-12deg);
+  transform: rotate(-12deg);
 }
 #fortune img {
   margin: 0 15px;

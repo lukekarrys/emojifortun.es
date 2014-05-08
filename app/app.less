@@ -22,9 +22,11 @@ html, body {
     background: transparent;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    .background-size(cover);
+    .background-size(900px);
     background-image: url(/bg-web.jpg);
-    background-position: 50% 50%;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    .calc(background-position-x, ~'50% - 26px');
 }
 
 #fortune {
@@ -36,9 +38,9 @@ html, body {
 
     span {
         position: absolute;
-        left: -142px;
-        top: -12px;
-        .transform(rotate(-11deg));
+        left: -141px;
+        top: -18px;
+        .transform(rotate(-12deg));
     }
 
     img {
