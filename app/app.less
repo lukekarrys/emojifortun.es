@@ -15,18 +15,14 @@ html, body {
 }
 
 #bg {
-    background: transparent;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: top center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     height: 100%;
     width: 100%;
     z-index: 1;
     position: absolute;
+    background: transparent;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    .background-size(cover);
     background-image: url(/bg-web.jpg);
     background-position: 50% 50%;
 }
@@ -36,12 +32,13 @@ html, body {
     z-index: 2;
     top: 50%;
     left: 50%;
-    .transform(rotate(-11deg));
+    width: 100%;
 
     span {
-        position: relative;
-        left: -136px;
-        top: -50px;
+        position: absolute;
+        left: -142px;
+        top: -12px;
+        .transform(rotate(-11deg));
     }
 
     img {
@@ -49,13 +46,35 @@ html, body {
     }
 }
 
+#fortuneText {
+    text-transform: uppercase;
+}
+
 #title {
     font-family: 'Oswald', 'sans-serif';
     position: absolute;
     z-index: 2;
-    top: 50px;
+    top: 5%;
     left: 50%;
-    width: 50%;
-    margin-left: -25%;
+    width: 90%;
+    margin-left: -45%;
     text-align: center;
+}
+
+footer {
+    width: 90%;
+    margin-left: -45%;
+    left: 50%;
+    z-index: 2;
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+    color: #ccc;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+
+    a, iframe {
+        margin: 0 5px;
+        color: #000;
+        text-decoration: none;
+    }
 }
