@@ -15,30 +15,44 @@ var _ = require('underscore');
 var imgDiff = require('./diff');
 
 var useDiff = process.argv.join(' ').indexOf('--diff') > -1;
+var forceMatch = process.argv.join(' ').indexOf('--force') > -1;
 var tolerance = useDiff ? 10 : 0;
 
 var codes;
 try {
-    codes = require('./public/emoji-code');
+    codes = require('./app/emoji-code');
 } catch (err) {
     codes = {
         named: {},
         missing: []
     };
 }
+
 var currentMissingImages = codes.missing.map(function (i) { return i + '.png'; });
 if (currentMissingImages.length === 0) {
     currentMissingImages = fs.readdirSync(__dirname + '/public/emojis');
 }
-currentMissingImages = currentMissingImages.slice(0, 4);
 
 var codePath = __dirname + '/node_modules/emojize/img/';
 var emojiCodes = _.invert(require('./node_modules/emojize/lib/emoji'));
 var diffs = {};
+var forceMatches = [];
+
+var namedValues = _.values(codes.named);
+if (namedValues.length) {
+    _.each(emojiCodes, function (code, name, list) {
+        if (namedValues.indexOf(code) > -1) {
+            delete list[name];
+        }
+    });
+}
+
+console.log(currentMissingImages.length);
+console.log('-----------');
 
 _.each(currentMissingImages, function (emojiFile) {
     var emojiName = emojiFile.replace('.png', '');
-    var diffMin, diffMax, diffAvg;
+    var diffMin, diffMax, diffAvg, matchPercent;
 
     var foundCode = _.find(emojiCodes, function (code, codeFileName, list) {
         var codeFile = codePath + codeFileName + '.png';
@@ -74,10 +88,17 @@ _.each(currentMissingImages, function (emojiFile) {
             diffMin = Math.min.apply(null, _.pluck(diffs[emojiName], 'percent'));
             diffMax = Math.max.apply(null, _.pluck(diffs[emojiName], 'percent'));
             diffAvg = diffs[emojiName].reduce(function(a, b) { return a.percent + b.percent; }) / diffs[emojiName].length;
+            matchPercent = 100 - diffMin;
         }
 
-        if (diffMin) {
+        if (diffMin && forceMatch) {
+            console.log('Match forced with', matchPercent, '%');
             foundCode = _.find(diffs[emojiName], function (d) { return d.percent === diffMin; }).code;
+            forceMatches.push({
+                code: foundCode,
+                percent: diffMin,
+                name: emojiName
+            });
         }
     }
 
@@ -89,8 +110,9 @@ _.each(currentMissingImages, function (emojiFile) {
         console.log('ERROR: no code could be found for', emojiName);
         codes.missing.push(emojiName);
     }
+
+    codes.missing = _.uniq(codes.missing);
+    fs.writeFileSync(__dirname + '/app/emoji-code.js', 'module.exports = ' + JSON.stringify(codes, null, 2) + ';', {encoding: 'utf8'});
+
     console.log('-------------------');
 });
-
-codes.missing = _.uniq(codes.missing);
-fs.writeFileSync(__dirname + '/app/emoji-code.js', 'module.exports = ' + JSON.stringify(codes) + ';', {encoding: 'utf8'});
