@@ -6,17 +6,16 @@ var fortune = require('../lib/emoji');
 var domready = require('domready');
 var domify = require('domify');
 var tweet = require('../lib/tweet');
-var codes = require('./emoji-code').named;
 
 var emoji = fortune(3, host, size);
 var images = '<span>' + _.pluck(emoji, 'image').join('') + '</span>';
-var emojiNames = _.chain(emoji).pluck('name').map(function (n) { return n.replace(/:/g, ''); }).value();
-var text = emojiNames.join(' ').replace(/_/g, ' ');
-var emojiCodes = _.filter(codes, function (codeVal, codeKey) { return _.contains(emojiNames, codeKey); }).join(' ');
+var names = _.pluck(emoji, 'name');
+var text = names.join(' ').replace(/_/g, ' ');
+var characters = _.pluck(emoji, 'character').join(' ');
 
 domready(function () {
     document.querySelector('#fortune').appendChild(domify(images));
     document.querySelector('#fortuneText').innerHTML = text;
-    document.querySelector('#tweetButton').setAttribute('data-text', 'My emoji fortune is "' + text + ' (' + emojiCodes + ')" —');
+    document.querySelector('#tweetButton').setAttribute('data-text', 'My emoji fortune is "' + text + ' (' + characters + ')" —');
     tweet(document);
 });
