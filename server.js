@@ -5,12 +5,11 @@ var jade = require('jade');
 var fs = require('fs');
 var lessitizer = require('lessitizer');
 
-
+var appPath = __dirname + '/app/';
 var devMode = process.argv.join(' ').indexOf('--dev') > -1;
 var html = function (locals) {
     return jade.compile(fs.readFileSync(appPath + 'index.jade'))(locals);
 };
-var appPath = __dirname + '/app/';
 var config = {
     main: appPath + 'main.js',
     stylesheets: [
