@@ -7,9 +7,8 @@
     "url": "https://github.com/lukekarrys/emoji-fortune/issues"
   },
   "dependencies": {
-    "domify": "^1.2.2",
     "domready": "^1.0.5",
-    "emoji-named-characters": "0.0.1",
+    "emoji-named-characters": "^0.0.2",
     "underscore": "^1.6.0"
   },
   "devDependencies": {
@@ -34,9 +33,10 @@
     "url": "git@github.com:lukekarrys/emoji-fortune.git"
   },
   "scripts": {
-    "start": "node server",
+    "build": "node server --build",
     "dev": "node server --dev",
-    "deploy": "npm run emojis && npm start && rake deploy",
+    "start": "node server",
+    "deploy": "npm run emojis && npm run build && rake deploy",
     "emojis": "rm -rf public/emojis && mkdir -p public/emojis && cp ./node_modules/emoji-named-characters/pngs/*.png ./public/emojis"
   }
 }

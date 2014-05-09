@@ -7,6 +7,7 @@ var lessitizer = require('lessitizer');
 
 var appPath = __dirname + '/app/';
 var devMode = process.argv.join(' ').indexOf('--dev') > -1;
+var buildMode = process.argv.join(' ').indexOf('--build') > -1;
 var html = function (locals) {
     return jade.compile(fs.readFileSync(appPath + 'index.jade'))(locals);
 };
@@ -25,7 +26,19 @@ var config = {
 };
 
 
-if (devMode) {
+if (buildMode) {
+    new Build({
+        moonboots: config,
+        htmlSource: function (context) {
+            return html(context);
+        },
+        directory: __dirname + '/_built',
+        public: __dirname + '/public',
+        cb: function (err) {
+            console.log(err || 'Built!');
+        }
+    });
+} else {
     var server = express();
     var port = process.env.PORT || 3001;
     server.use(express.static(__dirname + '/public'));
@@ -38,16 +51,4 @@ if (devMode) {
     });
     server.listen(port);
     console.log('Running on localhost:' + port);
-} else {
-    new Build({
-        moonboots: config,
-        htmlSource: function (context) {
-            return html(context);
-        },
-        directory: __dirname + '/_built',
-        public: __dirname + '/public',
-        cb: function (err) {
-            console.log(err || 'Built!');
-        }
-    });
 }

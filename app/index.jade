@@ -10,20 +10,23 @@ html
     link(rel='shortcut icon', href='/favicon.ico')
     link(rel='icon', href='/favicon.ico')
 
-    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Oswald:700')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Oswald:700,400')
     link(rel='stylesheet', type='text/css', href=locals.resourcePrefix + locals.cssFileName)
     script(src=locals.resourcePrefix + locals.jsFileName)
 
   body
     #bg
-    h1.top-text
-    h1#title
-      span#fortuneText
+    header
+      h1#title
+        span#fortuneText
     #fortune
+    .actions
+      a#tweetButton(target="_blank", href="#") Tweet It
+      button#refresh(type="button") Give Me a New One
     footer
-      a#tweetButton.twitter-share-button(href="https://twitter.com/share", data-count="none", data-size="large") Tweet
-      br
-      a.twitter-follow-button(href="https://twitter.com/lukekarrys", data-show-count="false") Follow @lukekarrys
+      p
+        | Made by 
+        a(href="https://twitter.com/lukekarrys", target="_blank") @lukekarrys
     script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
