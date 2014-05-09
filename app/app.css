@@ -62,6 +62,13 @@ background-position-x:calc(50% - 26px);
   width: 90%;
   margin-left: -45%;
   text-align: center;
+  font-size: 4em;
+}
+@media only screen and (max-width: 600px) {
+  #title {
+    font-size: 2em;
+    top: 20px;
+  }
 }
 footer {
   width: 90%;
@@ -74,9 +81,18 @@ footer {
   color: #ccc;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 }
+@media only screen and (max-width: 600px) {
+  footer {
+    bottom: 5px;
+  }
+}
 footer a,
 footer iframe {
   margin: 0 5px;
   color: #000;
   text-decoration: none;
+}
+footer a:first-child,
+footer iframe:first-child {
+  margin-bottom: 10px;
 }

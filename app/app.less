@@ -61,6 +61,12 @@ html, body {
     width: 90%;
     margin-left: -45%;
     text-align: center;
+    font-size: 4em;
+
+    @media only screen and (max-width : 600px) {
+        font-size: 2em;
+        top: 20px;
+    }
 }
 
 footer {
@@ -74,9 +80,16 @@ footer {
     color: #ccc;
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 
+    @media only screen and (max-width : 600px) {
+        bottom: 5px;
+    }
+
     a, iframe {
         margin: 0 5px;
         color: #000;
         text-decoration: none;
+        &:first-child {
+            margin-bottom: 10px;
+        }
     }
 }
