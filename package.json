@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "domready": "^1.0.5",
-    "emoji-named-characters": "^0.0.2",
+    "emoji-named-characters": "0.0.x",
     "underscore": "^1.6.0",
     "zepto-detect": "0.0.0"
   },
