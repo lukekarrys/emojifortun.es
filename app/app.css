@@ -22,8 +22,7 @@ body {
   -moz-background-size: 900px;
   background-size: 900px;
   background-image: url(/bg-web.jpg);
-  background-position-y: 50%;
-  background-position-x: 50%;
+  background-position: 50% 50%;
   -lh-property: 0;
 background-position-x:-webkit-calc(50% - 26px);
 background-position-x:-moz-calc(50% - 26px);
