@@ -7,19 +7,46 @@ var fortune = require('../lib/emoji');
 var domready = require('domready');
 var share = require('../lib/share');
 var addEvent = require('../lib/event');
+var attachFastClick = require('fastclick');
 var shareTextTmpl =  _.template('My emoji fortune is {{ characters }} ({{ text }}) —');
 var $ = function (id) { return document.querySelector('#' + id); };
+var ondeck = null;
 
-function doit () {
+
+function preload(images) {
+    _.each(images, function(src) {
+        (new Image()).src = src;
+    });
+}
+
+function getEmoji() {
     var emoji = fortune(3, host, size);
-    var images = '<span>' + _.pluck(emoji, 'image').join('') + '</span>';
+    preload(_.pluck(emoji, 'imgsrc'));
     var names = _.pluck(emoji, 'name');
     var text = names.join(' ').replace(/_/g, ' ');
     var characters = _.pluck(emoji, 'character').join(' ');
     var shareText = shareTextTmpl({text: text, characters: characters});
-    $('fortune').innerHTML = images;
-    $('fortuneText').innerHTML = text;
-    $('tweetButton').setAttribute('href', share(shareText).twitter);
+    return {
+        images: '<span>' + _.pluck(emoji, 'image').join('') + '</span>',
+        share: share(shareText),
+        text: text
+    };
+}
+
+function setDom(opts) {
+    $('fortune').innerHTML = opts.images;
+    $('copy').setAttribute('data-text', opts.share.copy);
+    $('fortuneText').innerHTML = opts.text;
+    $('tweetButton').setAttribute('href', opts.share.twitter);
+}
+
+function copyit() {
+    window.prompt('Copy to clipboard: Ctrl+C, Enter', this.getAttribute('data-text'));
+}
+
+function doit() {
+    setDom(ondeck ? ondeck : getEmoji());
+    ondeck = getEmoji();
 }
 
 function trackit () {
@@ -28,6 +55,8 @@ function trackit () {
 }
 
 domready(function () {
+    attachFastClick(document.body);
     doit();
     addEvent($('refresh'), 'click', trackit);
+    addEvent($('copy'), 'click', copyit);
 });

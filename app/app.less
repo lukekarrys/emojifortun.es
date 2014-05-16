@@ -25,13 +25,16 @@ html, body {
     .background-size(900px);
     background-image: url(/bg-web.jpg);
     background-position: 50% 50%;
-    .calc(background-position-x, ~'50% - 26px');
+    background-position: -webkit-calc(~'50% - 26px') -webkit-calc(~'50% - 26px');
+    background-position: -moz-calc(~'50% - 26px') -webkit-calc(~'50% - 26px');
+    background-position: calc(~'50% - 26px') -webkit-calc(~'50% - 26px');
 }
 
 #fortune {
     position: absolute;
     z-index: 2;
     top: 50%;
+    .calc(top, ~'50% - 26px');
     left: 50%;
     width: 100%;
 

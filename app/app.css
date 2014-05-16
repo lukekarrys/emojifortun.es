@@ -23,16 +23,19 @@ body {
   background-size: 900px;
   background-image: url(/bg-web.jpg);
   background-position: 50% 50%;
-  -lh-property: 0;
-background-position-x:-webkit-calc(50% - 26px);
-background-position-x:-moz-calc(50% - 26px);
-background-position-x:calc(50% - 26px);
-;
+  background-position: -webkit-calc(50% - 26px) -webkit-calc(50% - 26px);
+  background-position: -moz-calc(50% - 26px) -webkit-calc(50% - 26px);
+  background-position: calc(50% - 26px) -webkit-calc(50% - 26px);
 }
 #fortune {
   position: absolute;
   z-index: 2;
   top: 50%;
+  -lh-property: 0;
+top:-webkit-calc(50% - 26px);
+top:-moz-calc(50% - 26px);
+top:calc(50% - 26px);
+;
   left: 50%;
   width: 100%;
 }

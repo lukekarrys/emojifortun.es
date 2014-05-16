@@ -9,6 +9,7 @@
   "dependencies": {
     "domready": "^1.0.5",
     "emoji-named-characters": "0.0.x",
+    "fastclick": "^1.0.1",
     "underscore": "^1.6.0",
     "zepto-detect": "0.0.0"
   },
