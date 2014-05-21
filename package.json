@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "domready": "^1.0.5",
-    "emoji-named-characters": "^0.1.0",
     "fastclick": "^1.0.1",
+    "random-emoji": "^0.1.0",
     "underscore": "^1.6.0",
     "zepto-detect": "0.0.0"
   },

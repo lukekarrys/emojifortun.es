@@ -3,7 +3,7 @@ var size = 64;
 var host = '/emojis';
 var _ = require('underscore');
 _.templateSettings = {interpolate: /\{\{(.+?)\}\}/g};
-var Emoji = require('../lib/emoji');
+var Emoji = require('random-emoji');
 var domready = require('domready');
 var share = require('../lib/share');
 var addEvent = require('../lib/event');
@@ -20,8 +20,12 @@ function preload(images) {
 }
 
 function getEmoji() {
-    var emoji = Emoji.fortune(3, host, size);
-    preload(_.pluck(emoji, 'imgsrc'));
+    var emoji = Emoji.random({
+        count: 3,
+        host: host,
+        height: size
+    });
+    preload(_.pluck(emoji, 'imageSrc'));
     var names = _.pluck(emoji, 'name');
     var text = names.join(' ').replace(/_/g, ' ');
     var characters = _.pluck(emoji, 'character').join(' ');
