@@ -20,7 +20,7 @@
     "lessitizer": "0.0.1",
     "moonboots-express": "^0.1.0",
     "moonboots-static": "0.0.4",
-    "precommit-hook": "^1.0.2"
+    "precommit-hook": "^1.0.7"
   },
   "homepage": "https://github.com/lukekarrys/emoji-fortune",
   "keywords": [

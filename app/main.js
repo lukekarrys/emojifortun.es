@@ -30,8 +30,12 @@ function getEmoji() {
     var text = names.join(' ').replace(/_/g, ' ');
     var characters = _.pluck(emoji, 'character').join(' ');
     var shareText = shareTextTmpl({text: text, characters: characters});
+    var images = _.map(emoji, function (e) {
+        var url = 'http://emojipedia.org/' + e.name.replace(/_/g, '-').toLowerCase() + '/';
+        return '<a href="' + url + '" target="_blank">' + e.image + '</a>';
+    }).join('');
     return {
-        images: '<span>' + _.pluck(emoji, 'image').join('') + '</span>',
+        images: '<span>' + images + '</span>',
         share: share(shareText),
         text: text
     };
