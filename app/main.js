@@ -31,7 +31,7 @@ function getEmoji() {
     var characters = _.pluck(emoji, 'character').join(' ');
     var shareText = shareTextTmpl({text: text, characters: characters});
     var images = _.map(emoji, function (e) {
-        var url = 'http://emojipedia.org/' + e.name.replace(/_/g, '-').toLowerCase() + '/';
+        var url = 'http://emojipedia.org/' + e.character;
         return '<a href="' + url + '" target="_blank">' + e.image + '</a>';
     }).join('');
     return {
