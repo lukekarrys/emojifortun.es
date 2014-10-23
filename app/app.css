@@ -45,8 +45,8 @@ top:calc(50% - 26px);
   top: -18px;
   -webkit-transform: rotate(-12deg);
   -moz-transform: rotate(-12deg);
-  -o-transform: rotate(-12deg);
   -ms-transform: rotate(-12deg);
+  -o-transform: rotate(-12deg);
   transform: rotate(-12deg);
 }
 #fortune img {
