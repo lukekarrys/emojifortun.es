@@ -38,7 +38,7 @@
     "build": "node server --build",
     "dev": "node server --dev",
     "start": "node server",
-    "deploy": "npm run emojis && npm run build && npm run commit-built && git-directory-deploy.sh",
+    "deploy": "npm run emojis && npm run build && git-directory-deploy.sh",
     "emojis": "rm -rf public/emojis && mkdir -p public/emojis && cp ./node_modules/random-emoji/node_modules/emoji-named-characters/pngs/*.png ./public/emojis"
   }
 }
