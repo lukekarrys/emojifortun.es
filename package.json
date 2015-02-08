@@ -38,9 +38,7 @@
     "build": "node server --build",
     "dev": "node server --dev",
     "start": "node server",
-    "ghpages": "git checkout master && git subtree split --prefix _built/ -b gh-pages && git push -f origin gh-pages:gh-pages && git branch -D gh-pages && git push origin master",
-    "commit-built": "git add _built -A && git commit -m \"_built files at `date`\" -n > /dev/null 2>&1; exit 0",
-    "deploy": "npm run emojis && npm run build && npm run commit-built && npm run ghpages",
+    "deploy": "npm run emojis && npm run build && npm run commit-built && git-directory-deploy.sh",
     "emojis": "rm -rf public/emojis && mkdir -p public/emojis && cp ./node_modules/random-emoji/node_modules/emoji-named-characters/pngs/*.png ./public/emojis"
   }
 }

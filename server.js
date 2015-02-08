@@ -32,7 +32,7 @@ if (buildMode) {
         htmlSource: function (context) {
             return html(context);
         },
-        directory: __dirname + '/_built',
+        directory: __dirname + '/_site',
         public: __dirname + '/public',
         cb: function (err) {
             console.log(err || 'Built!');
