@@ -9,7 +9,7 @@
   "dependencies": {
     "domready": "^1.0.5",
     "fastclick": "^1.0.1",
-    "random-emoji": "^0.1.1",
+    "random-emoji": "^1.0.0",
     "underscore": "^1.6.0",
     "zepto-detect": "0.0.0"
   },
@@ -17,29 +17,42 @@
     "express": "^4.1.0",
     "git-directory-deploy": "^1.0.0",
     "jade": "^1.3.1",
-    "jshint": "^2.5.0",
-    "lessitizer": "0.0.1",
-    "moonboots-express": "^0.1.0",
-    "moonboots-static": "0.0.4",
-    "precommit-hook": "^1.0.7"
+    "jshint": "2.9.1-rc1",
+    "lessitizer": "2.0.0",
+    "moonboots-express": "^3.0.0",
+    "moonboots-static": "2.0.0",
+    "precommit-hook": "^3.0.0"
+  },
+  "engines": {
+    "node": "^5.0.0",
+    "npm": "^3.0.0"
   },
   "homepage": "https://github.com/lukekarrys/emoji-fortune",
   "keywords": [
+    "cookie",
     "emoji",
-    "fortune",
-    "cookie"
+    "fortune"
   ],
   "license": "MIT",
   "main": "server.js",
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:lukekarrys/emoji-fortune.git"
   },
   "scripts": {
-    "build": "node server --build",
-    "deploy": "npm run emojis && npm run build && git-directory-deploy",
-    "dev": "node server --dev",
-    "emojis": "rm -rf public/emojis && mkdir -p public/emojis && cp ./node_modules/random-emoji/node_modules/emoji-named-characters/pngs/*.png ./public/emojis",
-    "start": "node server"
+    "build": "npm run emojis && node server --build",
+    "codeship-setup": "npm run npm-version && npm install && npm run build",
+    "codeship-test": "npm run lint && npm run validate",
+    "deploy": "git-directory-deploy --directory _site --username lukekarrys --email lukekarrys@gmail.com --repo `cat package.json | jq -r '.repository.url'` --message='--skip-ci'",
+    "emojis": "rm -rf public/emojis && mkdir -p public/emojis && cp ./node_modules/emoji-named-characters/pngs/*.png ./public/emojis",
+    "lint": "jshint .",
+    "npm-version": "npm install -g npm@`cat package.json | jq -r '.engines.npm'`",
+    "start": "npm run emojis && node server --dev",
+    "validate": "npm ls >/dev/null"
   }
 }
