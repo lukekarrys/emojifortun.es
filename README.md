@@ -19,4 +19,3 @@ This is the code that powers [emojifortun.es](http://emojifortun.es).
 
 * `npm run build`
 * `npm run deploy`
-
