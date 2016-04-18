@@ -9,7 +9,7 @@
   "dependencies": {
     "domready": "^1.0.5",
     "fastclick": "^1.0.1",
-    "jsrender": "^0.9.73",
+    "jsrender": "0.9.73",
     "random-emoji": "^1.0.0",
     "underscore": "^1.6.0",
     "zepto-detect": "0.0.0"
