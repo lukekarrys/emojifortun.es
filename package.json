@@ -1,10 +1,10 @@
 {
-  "name": "emoji-fortune",
+  "name": "emojifortun.es",
   "description": "Your emoji fortune!",
   "version": "0.0.0",
   "author": "Luke Karrys <luke@lukekarrys.com>",
   "bugs": {
-    "url": "https://github.com/lukekarrys/emoji-fortune/issues"
+    "url": "https://github.com/lukekarrys/emojifortun.es/issues"
   },
   "dependencies": {
     "domready": "^1.0.8",
@@ -27,7 +27,7 @@
     "node": "^5.0.0",
     "npm": "^3.0.0"
   },
-  "homepage": "https://github.com/lukekarrys/emoji-fortune",
+  "homepage": "http://emojifortun.es",
   "keywords": [
     "cookie",
     "emoji",
@@ -41,7 +41,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:lukekarrys/emoji-fortune.git"
+    "url": "git@github.com:lukekarrys/emojifortun.es.git"
   },
   "scripts": {
     "build": "npm run emojis && node server --build",
