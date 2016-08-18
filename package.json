@@ -9,16 +9,16 @@
   "dependencies": {
     "domready": "^1.0.8",
     "fastclick": "^1.0.6",
-    "random-emoji": "^1.0.1",
+    "random-emoji": "^1.0.2",
     "underscore": "^1.8.3",
     "zepto-detect": "0.0.0"
   },
   "devDependencies": {
     "express": "^4.14.0",
-    "git-directory-deploy": "^1.5.0",
+    "git-directory-deploy": "^1.5.1",
     "jade": "^1.11.0",
-    "jshint": "2.9.2",
-    "lessitizer": "2.1.0",
+    "jshint": "^2.9.3",
+    "lessitizer": "^2.1.0",
     "moonboots-express": "^3.0.0",
     "moonboots-static": "2.0.1",
     "precommit-hook": "^3.0.0"
