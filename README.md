@@ -7,6 +7,8 @@ emoji-fortune
 
 This is the code that powers [emojifortun.es](http://emojifortun.es).
 
+Crappy first draft: [http://requirebin.com/?gist=lukekarrys/10309585](http://requirebin.com/?gist=lukekarrys/10309585).
+
 ## Setup
 
 * `npm install`
