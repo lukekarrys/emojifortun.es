@@ -7,7 +7,7 @@ emoji-fortune
 
 This is the code that powers [emojifortun.es](http://emojifortun.es).
 
-Crappy first draft: [http://requirebin.com/?gist=lukekarrys/10309585](http://requirebin.com/?gist=lukekarrys/10309585).
+Crappy first draft: [gist](https://gist.github.com/lukekarrys/10309585) and [requirebin](http://requirebin.com/?gist=lukekarrys/10309585).
 
 ## Setup
 
