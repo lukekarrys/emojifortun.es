@@ -14,10 +14,10 @@
     "zepto-detect": "0.0.0"
   },
   "devDependencies": {
-    "express": "^4.14.0",
+    "express": "^4.14.1",
     "git-directory-deploy": "^1.5.1",
     "jade": "^1.11.0",
-    "jshint": "^2.9.3",
+    "jshint": "^2.9.4",
     "json": "^9.0.4",
     "lessitizer": "^2.1.0",
     "moonboots-express": "^3.0.0",
