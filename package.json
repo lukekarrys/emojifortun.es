@@ -19,7 +19,7 @@
     "jade": "^1.11.0",
     "jshint": "^2.9.4",
     "json": "^9.0.4",
-    "lessitizer": "^2.1.0",
+    "lessitizer": "^3.0.0",
     "moonboots-express": "^3.0.0",
     "moonboots-static": "2.0.1",
     "precommit-hook": "^3.0.0"
