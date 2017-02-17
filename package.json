@@ -16,13 +16,13 @@
   "devDependencies": {
     "express": "^4.14.1",
     "git-directory-deploy": "^1.5.1",
+    "git-validate": "^2.2.2",
     "jade": "^1.11.0",
-    "jshint": "^2.9.4",
     "json": "^9.0.4",
     "lessitizer": "^2.1.0",
     "moonboots-express": "^3.0.0",
     "moonboots-static": "2.0.1",
-    "precommit-hook": "^3.0.0"
+    "standard": "^8.6.0"
   },
   "engines": {
     "node": "^6.0.0"
@@ -37,7 +37,8 @@
   "main": "server.js",
   "pre-commit": [
     "lint",
-    "validate"
+    "validate",
+    "build"
   ],
   "repository": {
     "type": "git",
@@ -49,7 +50,7 @@
     "codeship-test": "npm run lint && npm run validate",
     "deploy": "git-directory-deploy --directory _site --username lukekarrys --email lukekarrys@gmail.com --repo `cat package.json | json repository.url` --message='--skip-ci'",
     "emojis": "rm -rf public/emojis && mkdir -p public/emojis && cp ./node_modules/emoji-named-characters/pngs/*.png ./public/emojis",
-    "lint": "jshint .",
+    "lint": "standard",
     "start": "npm run emojis && node server --dev",
     "validate": "npm ls >/dev/null"
   }
