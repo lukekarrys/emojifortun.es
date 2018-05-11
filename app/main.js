@@ -1,4 +1,4 @@
-/* global document, ga */
+/* global document */
 var size = 64
 var host = '/emojis'
 var _ = require('underscore')
@@ -56,14 +56,9 @@ function doit () {
   ondeck = getEmoji()
 }
 
-function trackit () {
-  doit()
-  ga('send', 'pageview')
-}
-
 domready(function () {
   attachFastClick(document.body)
   doit()
-  addEvent($('refresh'), 'click', trackit)
+  addEvent($('refresh'), 'click', doit)
   addEvent($('copy'), 'click', copyit)
 })
