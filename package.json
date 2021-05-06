@@ -10,7 +10,7 @@
     "domready": "^1.0.8",
     "fastclick": "^1.0.6",
     "random-emoji": "^1.0.2",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "zepto-detect": "0.0.0"
   },
   "devDependencies": {
