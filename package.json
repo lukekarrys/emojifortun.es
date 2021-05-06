@@ -18,7 +18,7 @@
     "git-directory-deploy": "^1.5.1",
     "git-validate": "^2.2.2",
     "jade": "^1.11.0",
-    "json": "^9.0.4",
+    "json": "^10.0.0",
     "lessitizer": "^3.0.0",
     "moonboots-express": "^4.0.0",
     "moonboots-static": "2.0.1",
